@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Vista previa local y consciente de las cámaras de tu dispositivo.">
+
+    <title>Inspección Visual PWA</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icons/icon-192.png">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="encabezado">
+      <a class="marca" href="./index.html" aria-label="Ir al inicio">
+        <span class="marca__icono" aria-hidden="true">◎</span>
+        <span>Inspección Visual</span>
+      </a>
+      <span class="distintivo">PWA</span>
+    </header>
+
+    <main class="contenedor">
+      <section class="presentacion" aria-labelledby="titulo-principal">
+        <p class="etiqueta">Cámara privada y local</p>
+        <h1 id="titulo-principal">Mira a través de tu cámara con control total.</h1>
+        <p class="introduccion">
+          Tú decides cuándo encenderla, qué lente usar y cuándo apagarla. La vista previa
+          permanece en este dispositivo.
+        </p>
+      </section>
+
+      <section id="instrucciones-ios" class="aviso aviso--ios" hidden aria-labelledby="titulo-ios">
+        <div class="aviso__icono" aria-hidden="true">↑</div>
+        <div>
+          <h2 id="titulo-ios">Instalar en iPhone</h2>
+          <p>
+            En Safari, pulsa <strong>Compartir</strong> y después
+            <strong>Agregar a inicio</strong>. Ábrela desde el nuevo icono para usarla como app.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel-camara" aria-labelledby="titulo-visor">
+        <div class="panel-camara__cabecera">
+          <div>
+            <p class="etiqueta">Vista previa</p>
+            <h2 id="titulo-visor">Cámara del dispositivo</h2>
+          </div>
+          <p id="estado-camara" class="estado" role="status" aria-live="polite">
+            <span class="estado__punto" aria-hidden="true"></span>
+            <span id="texto-estado">Cámara apagada</span>
+          </p>
+        </div>
+
+        <div class="visor">
+          <video id="visor-camara" autoplay playsinline muted></video>
+          <div id="visor-vacio" class="visor__vacio">
+            <div class="visor__icono" aria-hidden="true">◉</div>
+            <p>La vista previa aparecerá aquí</p>
+            <span>No se ha solicitado acceso a la cámara.</span>
+          </div>
+        </div>
+
+        <div class="acciones">
+          <button id="btn-preparar-camara" class="boton boton--primario" type="button">
+            Solicitar acceso a cámara
+          </button>
+          <button id="btn-alternar-camara" class="boton boton--secundario" type="button" hidden>
+            Cambiar a cámara frontal
+          </button>
+          <button id="btn-apagar-camara" class="boton boton--peligro" type="button" hidden>
+            Apagar cámara
+          </button>
+        </div>
+      </section>
+
+      <section id="aviso-permiso" class="aviso aviso--permiso" hidden aria-labelledby="titulo-permiso">
+        <div class="aviso__icono" aria-hidden="true">✓</div>
+        <div class="aviso__contenido">
+          <h2 id="titulo-permiso">Antes de continuar</h2>
+          <p>
+            Esta aplicación requiere acceso a tu cámara únicamente para mostrar una vista
+            previa local en pantalla. Ninguna imagen se captura ni se envía a servidores externos.
+          </p>
+          <ul>
+            <li>Comenzaremos con la cámara trasera.</li>
+            <li>Puedes cambiar de lente o apagarla en cualquier momento.</li>
+          </ul>
+          <div class="aviso__acciones">
+            <button id="btn-confirmar-permiso" class="boton boton--primario" type="button">
+              Aceptar y encender cámara
+            </button>
+            <button id="btn-cancelar-permiso" class="boton boton--texto" type="button">
+              Ahora no
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacidad" aria-label="Compromisos de privacidad">
+        <article>
+          <span aria-hidden="true">⌁</span>
+          <h2>Procesamiento local</h2>
+          <p>El video se muestra directamente en tu pantalla.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">⊘</span>
+          <h2>Sin grabaciones</h2>
+          <p>La aplicación no toma ni almacena fotografías.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">◌</span>
+          <h2>Sensor bajo tu control</h2>
+          <p>El hardware se libera al apagar o cambiar de lente.</p>
+        </article>
+      </section>
+
+      <button id="btn-instalar" class="boton boton--instalar" type="button" hidden>
+        Instalar aplicación
+      </button>
+    </main>
+
+    <footer>
+      <p>Inspección Visual PWA · Privacidad desde el diseño</p>
+    </footer>
+  </body>
+</html>
