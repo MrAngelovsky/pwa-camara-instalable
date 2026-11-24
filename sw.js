@@ -1,6 +1,6 @@
 'use strict';
 
-const NOMBRE_CACHE = 'inspeccion-visual-v1';
+const NOMBRE_CACHE = 'inspeccion-visual-v2';
 const RECURSOS = [
   './',
   './index.html',
